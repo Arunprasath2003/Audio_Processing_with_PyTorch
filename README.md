@@ -1,53 +1,57 @@
-**Audio Processing in Python:**
+**Python Code for Audio Processing:**
+<br>
+**Audio Processing Functions:**
 <br>
 
-1. Loaded an audio file using torchaudio.
-2. Resampled the audio to a target sample rate.
-3. Computed the Short-Time Fourier Transform (STFT) and obtained magnitude and phase components.
-3. Reconstructed the audio from magnitude and phase using Inverse STFT (ISTFT).
-4. Compared the original and reconstructed audio waveforms.
-5. Evaluated the audio using PESQ (Perceptual Evaluation of Speech Quality) and STOI (Short Time Objective Intelligibility) scores.
+1. Implemented functions in Python for audio processing, including loading and resampling audio, computing the Short-Time Fourier Transform (STFT), and computing the Inverse STFT (ISTFT).
+2. The STFT is used to convert the audio signal from the time domain to the frequency domain, and ISTFT is used to reconstruct the audio signal from the frequency domain.
 <br>
 
-**PyTorch to C++ using Pybind11:**
+**STFT and ISTFT Functions:**
 <br>
 
-1. Created a C++ application using Pybind11 for computing STFT and returning magnitude and phase.
-2. Built the C++ module using CMake and integrated it with Python.
-3. Wrote a Python script to test the C++ module and compared the results with PyTorch.
+1. load_and_resample_audio: Loads an audio file and resamples it to a target sample rate using linear interpolation.
+2. compute_stft: Computes the STFT of an audio waveform and returns magnitude and phase spectrograms.
+3. compute_istft: Computes the ISTFT from magnitude and phase spectrograms, reconstructing the audio waveform.
 <br>
 
-**Testing Audio Processing with Pytest:**
+**Testing and Visualization:**
 <br>
 
-1. Imported the necessary libraries, including torchmetrics for audio quality metrics.
-2. Implemented a Pytest script to test the STFT function, comparing the results from Python and C++.
+1. Tested the functionality by loading an audio file, resampling it, computing the STFT, performing ISTFT, and visualizing the original and reconstructed audio waveforms.
+
 <br>
 
-**Class-based Modularization:**
+**PyTorch Metrics Comparison:**
 <br>
 
-1. Organized the Python audio processing code into classes and functions for better modularity and readability.
-2. Added multiline comments before each function to explain their purpose and functionality.
-
-**Summary of Classes and Functions:**
+**PyTorch Metrics:**
 <br>
 
-**AudioProcessor Class:**
+1. Used PyTorch metrics library to compute the Perceptual Evaluation of Speech Quality (PESQ) and Short-Time Objective Intelligibility (STOI) scores for the original and reconstructed audio.
+2. PESQ measures speech quality, and STOI measures intelligibility.
+
+**Comparison and Results:**
 <br>
 
-1. load_and_resample_audio: Loads and resamples audio.
-2. compute_stft: Computes STFT and returns magnitude and phase.
-3. compute_istft: Computes ISTFT and reconstructs audio.
-4. compare_audio: Compares original and reconstructed audio.
-5. evaluate_audio: Evaluates audio using PESQ and STOI.
-
-**CppAudioProcessor Class:**
+1. Compared the original and reconstructed audio using PyTorch tensors, and printed PESQ and STOI scores.
 <br>
 
-1. compute_stft: Computes STFT in C++ using Pybind11.
+**C++ Implementation with Pybind11:**
 <br>
 
-**AudioTest Class:**
+**C++ STFT Implementation:**
 <br>
-1. test_stft: Pytest script to test STFT function.
+
+1. Implemented the STFT in C++ **without using third-party libraries**. The STFT function computes magnitude and phase components of the audio signal.
+2. The code is **encapsulated in a class**, STFTProcessor.
+
+**Pybind11 Integration:**
+<br>
+
+1. Used Pybind11 to create a Python module (stft_module) that exposes the STFT functionality from C++ to Python.
+
+**Testing with Pytest:**
+<br>
+
+1. Wrote Pytest tests to compare the results of the C++ and Python implementations of STFT.
