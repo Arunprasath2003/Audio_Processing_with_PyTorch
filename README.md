@@ -50,8 +50,12 @@
 <br>
 
 1. Used Pybind11 to create a Python module (stft_module) that exposes the STFT functionality from C++ to Python.
+![image](https://github.com/Arunprasath2003/Audio_Processing_with_PyTorch/assets/98107416/fecde4df-f725-43b6-86f1-8d1a4e0d2030)
 
 **Testing with Pytest:**
 <br>
 
 1. Wrote Pytest tests to compare the results of the C++ and Python implementations of STFT.
+
+![image](https://github.com/Arunprasath2003/Audio_Processing_with_PyTorch/assets/98107416/13174cdb-410f-4e41-a98d-6e1548515c96)
+
